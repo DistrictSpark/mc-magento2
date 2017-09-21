@@ -175,7 +175,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         \Magento\Customer\Model\ResourceModel\Customer\CollectionFactory $customerCollection,
         \Magento\Customer\Api\AddressRepositoryInterface $addressRepositoryInterface
     ) {
-    
+
         $this->_storeManager  = $storeManager;
         $this->_mlogger       = $logger;
         $this->_groupRegistry = $groupRegistry;
@@ -760,7 +760,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
             '_secure' => true]);
         try {
             $this->log($hookUrl);
-            $ret = $api->lists->webhooks->add($listId, urlencode($hookUrl), $events, $sources);
+            $ret = $api->lists->webhooks->add($listId, $hookUrl, $events, $sources);
         } catch (\Mailchimp_Error $e) {
             $this->log($e->getMessage());
         }
